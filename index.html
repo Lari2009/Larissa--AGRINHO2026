@@ -1,1 +1,394 @@
+HTML
 
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Forte: O Futuro Sustentável</title>
+    <style>
+        /* ==========================================================================
+           1. VARIÁVEIS DE CORES E CONFIGURAÇÕES GERAIS
+           Mudamos a paleta anterior para tons de Terra (Moderno) e Verde Floresta (Sustentabilidade)
+           ========================================================================== */
+        :root {
+            --cor-primaria: #2c4a3e;     /* Verde Fechado / Floresta */
+            --cor-secundaria: #a3704c;   /* Tom de Terra / Solo */
+            --cor-acento: #e9c46a;       /* Ouro / Sol / Colheita */
+            --cor-fundo: #fcfaf7;        /* Off-white quente e confortável */
+            --cor-texto: #2b2d42;        /* Cinza escuro para excelente leitura */
+            --cor-card-bg: #ffffff;      /* Branco puro para os blocos de conteúdo */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            line-height: 1.8;
+        }
+
+        /* Comportamento de rolagem suave ao clicar nos links do menu */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* ==========================================================================
+           2. COMPONENTES REUTILIZÁVEIS (Layout limpo)
+           ========================================================================== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .titulo-secao {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--cor-primaria);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .subtitulo-secao {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem auto;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* ==========================================================================
+           3. CABEÇALHO E NAVEGAÇÃO
+           ========================================================================== */
+        header {
+            background-color: var(--cor-primaria);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            color: #ffffff;
+            font-size: 1.6rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--cor-acento);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--cor-acento);
+        }
+
+        /* ==========================================================================
+           4. SEÇÃO HERO (BANNER PRINCIPAL COM IMAGEM DE GRÃOS/COLHEITA)
+           ========================================================================== */
+        .hero {
+            background: linear-gradient(rgba(44, 74, 62, 0.75), rgba(44, 74, 62, 0.45)), 
+                        url('https://images.unsplash.com/photo-1592982537447-6f2a6a0c7c18?auto=format&fit=crop&w=1500&q=80') no-repeat center center/cover;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #ffffff;
+            padding: 2rem;
+        }
+
+        .hero-conteudo {
+            max-width: 850px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            color: #f0f0f0;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .btn-principal {
+            background-color: var(--cor-secundaria);
+            color: #ffffff;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: inline-block;
+        }
+
+        .btn-principal:hover {
+            background-color: #8c5d3b;
+            transform: translateY(-2px);
+        }
+
+        /* ==========================================================================
+           5. SEÇÃO DOS PILARES (GRID EXPLICATIVO)
+           ========================================================================== */
+        .pilares-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .pilar-card {
+            background-color: var(--cor-card-bg);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-bottom: 5px solid transparent;
+        }
+
+        .pilar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            border-bottom: 5px solid var(--cor-secundaria);
+        }
+
+        .pilar-icone-box {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .pilar-card h3 {
+            color: var(--cor-primaria);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .pilar-card p {
+            color: #555;
+            font-size: 0.98rem;
+        }
+
+        /* ==========================================================================
+           6. SEÇÃO SOBRE O EQUILÍBRIO (LAYOUT DOIS LADOS)
+           ========================================================================== */
+        .equilibrio-secao {
+            background-color: #f0eae1; /* Tom de areia/terra bem suave para contraste */
+        }
+
+        .equilibrio-flex {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .equilibrio-texto {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .equilibrio-texto h2 {
+            font-size: 2.2rem;
+            color: var(--cor-primaria);
+            margin-bottom: 1.5rem;
+        }
+
+        .equilibrio-texto p {
+            margin-bottom: 1.2rem;
+            color: #444;
+        }
+
+        .destaque-caixa {
+            background-color: var(--cor-primaria);
+            color: #ffffff;
+            padding: 1.5rem;
+            border-left: 5px solid var(--cor-acento);
+            margin-top: 2rem;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .equilibrio-imagem {
+            flex: 1;
+            min-width: 300px;
+            height: 450px;
+            background: url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1000&q=80') no-repeat center center/cover;
+            border-radius: 8px;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        }
+
+        /* ==========================================================================
+           7. RODAPÉ (FOOTER)
+           ========================================================================== */
+        footer {
+            background-color: var(--cor-primaria);
+            color: #d0d7d4;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 4px solid var(--cor-secundaria);
+        }
+
+        .footer-conteudo p {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            margin-top: 1.5rem;
+        }
+
+        .footer-links a {
+            color: var(--cor-acento);
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* ==========================================================================
+           8. REGRAS DE RESPONSIVIDADE (Ajustes Automáticos para Celular)
+           ========================================================================== */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                gap: 1.2rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .equilibrio-flex {
+                flex-direction: column-reverse; /* No celular, o texto sobe e a foto desce */
+                gap: 2rem;
+            }
+
+            .equilibrio-imagem {
+                height: 300px;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="#inicio" class="logo">Agro<span>Forte</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#pilares">Os Pilares</a></li>
+                    <li><a href="#equilibrio">O Desafio</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="hero-conteudo">
+            <h1>O Futuro do Agronegócio é o Equilíbrio</h1>
+            <p>Descubra como a união entre a alta produtividade do campo e a preservação ecológica está transformando o Brasil no líder global da sustentabilidade real.</p>
+            <a href="#pilares" class="btn-principal">Entender o Ecossistema</a>
+        </div>
+    </section>
+
+    <section id="pilares" class="container">
+        <h2 class="titulo-secao">Pilares da Produção Sustentável</h2>
+        <p class="subtitulo-secao">Entenda os conceitos e as tecnologias que provam que produzir e preservar são duas faces da mesma moeda.</p>
+        
+        <div class="pilares-grid">
+            <div class="pilar-card">
+                <div class="pilar-icone-box">🌱</div>
+                <h3>Manejo de Precisão</h3>
+                <p><strong>O que é:</strong> Uso direcionado de dados climáticos, drones, mapeamento por satélite e GPS nos tratores.<br><br><strong>Como ajuda:</strong> Em vez de aplicar água e insumos de forma uniforme por toda a fazenda, o produtor age cirurgicamente apenas onde a planta necessita. Isso reduz desperdícios químicos e preserva os recursos hídricos.</p>
+            </div>
+
+            <div class="pilar-card">
+                <div class="pilar-icone-box">🔄</div>
+                <h3>Integração ILPF</h3>
+                <p><strong>O que é:</strong> Estratégia de Integração Lavoura-Pecuária-Forestas operando na mesma propriedade rural.<br><br><strong>Como ajuda:</strong> Alternar plantio de grãos, pastagens e árvores na mesma terra otimiza o solo durante o ano todo, gera conforto térmico natural para o gado e recupera áreas desgastadas sem a necessidade de abrir novas áreas de mata nativa.</p>
+            </div>
+
+            <div class="pilar-card">
+                <div class="pilar-icone-box">☀️</div>
+                <h3>Energia Limpa no Campo</h3>
+                <p><strong>O que é:</strong> Conversão de dejetos animais e restos de colheitas em biomassa e biogás, somado a painéis solares.<br><br><strong>Como ajuda:</strong> O que antes era tratado como resíduo poluente passa a abastecer energeticamente a propriedade, criando fazendas autossuficientes e neutralizando emissões de carbono.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="equilibrio" class="equilibrio-secao">
+        <div class="container equilibrio-flex">
+            <div class="equilibrio-texto">
+                <h2>Como alcançar o equilíbrio real?</h2>
+                <p>O conceito de <strong>Agro Forte</strong> não apoia a produção predatória e desordenada, mas também reconhece que o mundo necessita de segurança alimentar. O verdadeiro futuro está amparado na ciência do campo.</p>
+                <p>Graças à severidade do Código Florestal Brasileiro e ao uso de monitoramento digital via satélite, o produtor atual consegue assegurar a integridade das Reservas Legais e Áreas de Preservação Permanente (APPs), mantendo a floresta em pé enquanto as safras por hectare superam recordes anteriores.</p>
+                
+                <div class="destaque-caixa">
+                    <strong>Fato Científico:</strong> Aumentar a tecnologia aplicada por metro quadrado (adensamento tecnológico) é a resposta do século XXI para combater o desmatamento, gerando riqueza com responsabilidade ambiental.
+                </div>
+            </div>
+            <div class="equilibrio-imagem"></div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-conteudo">
+            <p>&copy; 2026 AgroForte. Desenvolvimento focado no equilíbrio ecológico e segurança alimentar.</p>
+            <p>Construído com fins informativos e educacionais sobre a evolução das práticas no campo.</p>
+            <div class="footer-links">
+                <a href="#inicio">Voltar ao topo</a>
+                <a href="#pilares">Tecnologias</a>
+                <a href="#equilibrio">Sobre o Equilíbrio</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
